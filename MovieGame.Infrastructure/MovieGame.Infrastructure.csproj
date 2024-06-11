@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MovieGame.Core\MovieGame.Core.csproj" />
     <ProjectReference Include="..\MovieGame.MODEL\MovieGame.MODEL.csproj" />
   </ItemGroup>
 

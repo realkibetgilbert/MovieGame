@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using MovieGame.Components;
+using MovieGame.Core.Services;
 using MovieGame.Infrastructure;
+using MovieGame.Infrastructure.SqlServerImplementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddDbContextPool<ApplicationContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EfCoreConnectionString")));
+builder.Services.AddScoped<IVideoGameService, VideoGameService>();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
